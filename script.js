@@ -163,4 +163,4 @@ function shareResult() {
         "_blank",
         "width=600,height=500"
     );
-}
+    }
