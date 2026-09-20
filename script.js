@@ -8,12 +8,6 @@ function checkResult() {
         alert("ユーザー名を入力してください。");
         return;
     }
-
-    // Aは英数字のみ
-    if (!/^[a-zA-Z0-9]+$/.test(inputA)) {
-    alert("Aは英数字のみで入力してください。");
-    return;
-    }
     
     // Bが空欄
     if (inputB === "") {
