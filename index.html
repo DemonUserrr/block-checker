@@ -3,39 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ブロックチェッカー</title>
+
+    <title>Xブロックチェッカー</title>
+
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <div class="container">
+    <main class="container">
 
-        <h1>ブロックチェッカー</h1>
-        <p class="description">
-            2つの項目を入力してチェックしてみよう。
-        </p>
+        <header class="header">
+            <div class="logo">𝕏</div>
+            <h1>Xブロックチェッカー</h1>
+        </header>
 
-        <div class="card">
+        <section class="intro">
+            <p>
+                2つの項目を入力して、あなたの結果をチェックしよう。
+            </p>
+        </section>
 
-            <label>ユーザー名</label>
-            <input type="text" id="inputA" placeholder="ここに入力">
+        <section class="card">
 
-            <label>パスワード</label>
-            <input type="text" id="inputB" placeholder="ここに入力">
+            <div class="input-group">
+                <label for="inputA">ユーザー名</label>
+                <input
+                    type="text"
+                    id="inputA"
+                    placeholder="入力してください"
+                >
+            </div>
+
+            <div class="input-group">
+                <label for="inputB">パスワード</label>
+                <input
+                    type="text"
+                    id="inputB"
+                    placeholder="入力してください"
+                >
+            </div>
 
             <button onclick="checkResult()">
                 チェックする
             </button>
 
-        </div>
+        </section>
 
-        <div id="result" class="result hidden">
-            <h2>チェック結果</h2>
+        <section id="result" class="result hidden">
+
+            <div class="result-label">
+                CHECK RESULT
+            </div>
+
             <p id="resultText"></p>
-        </div>
 
-    </div>
+            <button class="share-button" onclick="shareResult()">
+                𝕏 で結果をポスト
+            </button>
+
+        </section>
+
+        <footer>
+            Xブロックチェッカー
+        </footer>
+
+    </main>
 
     <script src="script.js"></script>
 
