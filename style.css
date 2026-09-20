@@ -40,14 +40,16 @@ body {
 }
 
 .logo {
-    font-size: 48px;
+    font-size: 52px;
     font-weight: bold;
+    line-height: 1;
     margin-bottom: 20px;
 }
 
 .header h1 {
     margin: 0;
-    font-size: 28px;
+    font-size: 30px;
+    font-weight: 700;
 }
 
 
@@ -57,13 +59,14 @@ body {
 
 .intro {
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 35px;
 }
 
 .intro p {
     margin: 0;
     color: #71767b;
     font-size: 15px;
+    line-height: 1.6;
 }
 
 
@@ -84,31 +87,43 @@ body {
 label {
     display: block;
     margin-bottom: 8px;
+    color: #e7e9ea;
     font-size: 14px;
     font-weight: bold;
 }
 
 input {
     width: 100%;
-    height: 52px;
+    height: 54px;
     padding: 0 18px;
 
     border: 1px solid #2f3336;
-    border-radius: 8px;
+    border-radius: 10px;
 
     background: #000;
     color: #e7e9ea;
 
     font-size: 16px;
     outline: none;
+
+    transition:
+        border-color 0.15s ease,
+        background 0.15s ease,
+        box-shadow 0.15s ease;
 }
 
 input::placeholder {
     color: #71767b;
 }
 
+input:hover {
+    border-color: #536471;
+}
+
 input:focus {
     border-color: #1d9bf0;
+    background: #050505;
+    box-shadow: 0 0 0 1px #1d9bf0;
 }
 
 
@@ -118,7 +133,7 @@ input:focus {
 
 button {
     width: 100%;
-    height: 50px;
+    height: 54px;
     margin-top: 8px;
 
     border: none;
@@ -131,10 +146,18 @@ button {
     font-weight: bold;
 
     cursor: pointer;
+
+    transition:
+        background 0.15s ease,
+        transform 0.1s ease;
 }
 
 button:hover {
     background: #1a8cd8;
+}
+
+button:active {
+    transform: scale(0.98);
 }
 
 
@@ -146,31 +169,61 @@ button:hover {
     width: 100%;
     max-width: 700px;
 
-    margin: 40px auto 0;
-    padding: 30px 20px;
+    margin: 45px auto 0;
+    padding: 30px 25px;
 
-    border-top: 1px solid #2f3336;
-    border-bottom: 1px solid #2f3336;
+    border: 1px solid #2f3336;
+    border-radius: 16px;
+
+    background: #050505;
 
     text-align: center;
 }
 
 .result-label {
-    margin-bottom: 15px;
+    margin-bottom: 16px;
 
     color: #71767b;
     font-size: 13px;
     font-weight: bold;
 
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
 }
 
 .result p {
-    margin: 0;
+    margin: 0 0 25px;
+
+    color: #e7e9ea;
 
     font-size: 32px;
     line-height: 1.4;
     font-weight: bold;
+}
+
+
+/* =========================
+   X共有ボタン
+========================= */
+
+.share-button {
+    width: 100%;
+    max-width: 420px;
+    height: 50px;
+
+    margin: 0 auto;
+
+    background: #e7e9ea;
+    color: #000;
+
+    font-size: 15px;
+}
+
+.share-button:hover {
+    background: #d7d9da;
+}
+
+.share-button:active {
+    transform: scale(0.98);
 }
 
 
@@ -188,11 +241,11 @@ button:hover {
 ========================= */
 
 footer {
-    margin-top: 40px;
+    margin-top: 45px;
 
     text-align: center;
 
-    color: #71767b;
+    color: #536471;
     font-size: 13px;
 }
 
@@ -208,16 +261,60 @@ footer {
         padding: 30px 20px;
     }
 
+    .header {
+        margin-bottom: 30px;
+    }
+
     .logo {
         font-size: 42px;
+        margin-bottom: 16px;
     }
 
     .header h1 {
         font-size: 24px;
     }
 
+    .intro {
+        margin-bottom: 28px;
+    }
+
+    .intro p {
+        font-size: 14px;
+    }
+
+    .card {
+        max-width: 100%;
+    }
+
+    input {
+        height: 52px;
+        font-size: 16px;
+    }
+
+    button {
+        height: 52px;
+        font-size: 16px;
+    }
+
+    .result {
+        margin-top: 35px;
+        padding: 26px 18px;
+        border-radius: 14px;
+    }
+
     .result p {
         font-size: 26px;
+        margin-bottom: 22px;
+    }
+
+    .share-button {
+        max-width: 100%;
+        height: 48px;
+        font-size: 14px;
+    }
+
+    footer {
+        margin-top: 35px;
     }
 }
 
@@ -251,7 +348,7 @@ footer {
     }
 
     .logo {
-        font-size: 54px;
+        font-size: 56px;
     }
 
     .header h1 {
@@ -259,11 +356,11 @@ footer {
     }
 
     .intro {
-        margin-bottom: 35px;
+        margin-bottom: 38px;
     }
 
     .intro p {
-        font-size: 17px;
+        font-size: 16px;
     }
 
     .card {
@@ -271,7 +368,7 @@ footer {
     }
 
     label {
-        font-size: 16px;
+        font-size: 15px;
     }
 
     input {
@@ -287,7 +384,7 @@ footer {
     .result {
         max-width: 700px;
         margin-top: 45px;
-        padding: 35px 25px;
+        padding: 35px 30px;
     }
 
     .result-label {
@@ -296,6 +393,11 @@ footer {
 
     .result p {
         font-size: 38px;
+    }
+
+    .share-button {
+        height: 52px;
+        font-size: 16px;
     }
 
     footer {
