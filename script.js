@@ -135,18 +135,34 @@ function shareResult() {
     const result =
         document.getElementById("resultText").textContent;
 
-    const text =
-        "Xブロックチェッカーの結果は「" +
-        result +
-        "」でした！";
 
+    // ★ここを自分のサイトURLに変更
+    const SITE_URL =
+        "https://iz7d.github.io/block-checker/";
+
+
+    // Xに投稿する文章
+    const text =
+        "Xブロックチェッカーチェッカーの結果は「" +
+        result +
+        "」でした！\n\n" +
+        "あなたもチェックしてみて👇";
+
+
+    // X投稿URL
     const url =
         "https://twitter.com/intent/tweet?text=" +
-        encodeURIComponent(text);
+        encodeURIComponent(text) +
+        "&url=" +
+        encodeURIComponent(SITE_URL);
 
+
+    // Xを開く
     window.open(
         url,
         "_blank",
         "width=600,height=500"
+    );
+}
     );
 }
