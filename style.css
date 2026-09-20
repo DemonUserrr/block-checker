@@ -9,59 +9,79 @@ body {
     font-family: Arial, sans-serif;
 }
 
+/* PCでは中央にコンパクトに配置 */
 .container {
     width: 100%;
     max-width: 600px;
     min-height: 100vh;
     margin: 0 auto;
+    padding: 40px 30px;
     background: #000;
-    border-left: 1px solid #2f3336;
-    border-right: 1px solid #2f3336;
 }
 
-/* ヘッダー */
+/* Xロゴ */
 
-h1 {
-    margin: 0;
-    padding: 18px 20px;
-    font-size: 20px;
-    font-weight: 700;
-    border-bottom: 1px solid #2f3336;
+.header {
+    text-align: center;
+    margin-bottom: 35px;
 }
 
-.description {
+.logo {
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.header h1 {
     margin: 0;
-    padding: 18px 20px;
+    font-size: 28px;
+}
+
+/* 説明 */
+
+.intro {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.intro p {
+    margin: 0;
     color: #71767b;
     font-size: 15px;
-    border-bottom: 1px solid #2f3336;
 }
 
-/* 入力エリア */
+/* 入力カード */
 
 .card {
-    padding: 25px 20px;
-    border-bottom: 1px solid #2f3336;
+    width: 100%;
+    max-width: 450px;
+    margin: 0 auto;
+}
+
+/* 入力 */
+
+.input-group {
+    margin-bottom: 20px;
 }
 
 label {
     display: block;
-    margin: 20px 0 8px;
-    font-size: 15px;
-    font-weight: 700;
-}
-
-label:first-child {
-    margin-top: 0;
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: bold;
 }
 
 input {
     width: 100%;
-    padding: 14px 16px;
+    height: 52px;
+    padding: 0 18px;
+
     border: 1px solid #2f3336;
-    border-radius: 9999px;
+    border-radius: 8px;
+
     background: #000;
     color: #e7e9ea;
+
     font-size: 16px;
     outline: none;
 }
@@ -74,18 +94,23 @@ input:focus {
     border-color: #1d9bf0;
 }
 
-/* チェックボタン */
+/* ボタン */
 
 button {
     width: 100%;
-    margin-top: 25px;
-    padding: 14px 20px;
+    height: 50px;
+
+    margin-top: 8px;
+
     border: none;
     border-radius: 9999px;
+
     background: #1d9bf0;
     color: white;
+
     font-size: 16px;
-    font-weight: 700;
+    font-weight: bold;
+
     cursor: pointer;
 }
 
@@ -96,39 +121,48 @@ button:hover {
 /* 結果 */
 
 .result {
+    width: 100%;
+    max-width: 500px;
+
+    margin: 40px auto 0;
     padding: 30px 20px;
+
+    border-top: 1px solid #2f3336;
     border-bottom: 1px solid #2f3336;
+
     text-align: center;
 }
 
-.result h2 {
-    margin: 0 0 20px;
+.result-label {
+    margin-bottom: 15px;
+
     color: #71767b;
-    font-size: 15px;
-    font-weight: 400;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 1px;
 }
 
 .result p {
     margin: 0;
-    font-size: 30px;
+
+    font-size: 32px;
     line-height: 1.4;
-    font-weight: 700;
-    color: #e7e9ea;
-}
-
-/* 結果が出たときの大きな表示 */
-
-.result::before {
-    content: "結果";
-    display: block;
-    margin-bottom: 15px;
-    color: #1d9bf0;
-    font-size: 14px;
-    font-weight: 700;
+    font-weight: bold;
 }
 
 .hidden {
     display: none;
+}
+
+/* フッター */
+
+footer {
+    margin-top: 40px;
+
+    text-align: center;
+
+    color: #71767b;
+    font-size: 13px;
 }
 
 /* スマホ */
@@ -136,12 +170,15 @@ button:hover {
 @media (max-width: 600px) {
 
     .container {
-        border-left: none;
-        border-right: none;
+        padding: 30px 20px;
     }
 
-    h1 {
-        font-size: 19px;
+    .logo {
+        font-size: 42px;
+    }
+
+    .header h1 {
+        font-size: 24px;
     }
 
     .result p {
