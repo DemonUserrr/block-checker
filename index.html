@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Xブロックチェッカー</title>
+    <title>𝕏ブロックチェッカー</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
@@ -13,43 +13,69 @@
 
     <main class="container">
 
+        <!-- ヘッダー -->
         <header class="header">
+
             <div class="logo">𝕏</div>
-            <h1>Xブロックチェッカー</h1>
+
+            <h1>𝕏ブロックチェッカー</h1>
+
         </header>
 
+
+        <!-- 説明 -->
         <section class="intro">
+
             <p>
                 2つの項目を入力して、あなたの結果をチェックしよう。
             </p>
+
         </section>
 
+
+        <!-- 入力 -->
         <section class="card">
 
+            <!-- A -->
             <div class="input-group">
-                <label for="inputA">ユーザー名</label>
+
+                <label for="inputA">A</label>
+
                 <input
                     type="text"
                     id="inputA"
-                    placeholder="入力してください"
+                    placeholder="ユーザー名を入力してください"
+                    autocomplete="off"
+                    oninput="this.value = this.value.replace(/[^a-zA-Z0-9]/g, '')"
                 >
+
             </div>
 
+
+            <!-- B -->
             <div class="input-group">
-                <label for="inputB">パスワード</label>
+
+                <label for="inputB">B</label>
+
                 <input
                     type="text"
                     id="inputB"
-                    placeholder="入力してください"
+                    placeholder="パスワードを入力してください"
+                    autocomplete="off"
                 >
+
             </div>
 
+
+            <!-- チェックボタン -->
             <button onclick="checkResult()">
                 チェックする
             </button>
 
         </section>
 
+
+        <!-- 結果 -->
         <section id="result" class="result hidden">
 
             <div class="result-label">
@@ -58,18 +84,26 @@
 
             <p id="resultText"></p>
 
-            <button class="share-button" onclick="shareResult()">
+            <!-- X共有 -->
+            <button
+                class="share-button"
+                onclick="shareResult()"
+            >
                 𝕏 で結果をポスト
             </button>
 
         </section>
 
+
+        <!-- フッター -->
         <footer>
-            Xブロックチェッカー
+            𝕏ブロックチェッカー
         </footer>
 
     </main>
 
+
+    <!-- JavaScript -->
     <script src="script.js"></script>
 
 </body>
