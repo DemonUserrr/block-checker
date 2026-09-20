@@ -164,5 +164,3 @@ function shareResult() {
         "width=600,height=500"
     );
 }
-    );
-}
