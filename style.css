@@ -1,1 +1,95 @@
+* {
+    box-sizing: border-box;
+}
 
+body {
+    margin: 0;
+    background: #000;
+    color: #e7e9ea;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    width: 100%;
+    max-width: 600px;
+    min-height: 100vh;
+    margin: 0 auto;
+    border-left: 1px solid #2f3336;
+    border-right: 1px solid #2f3336;
+}
+
+h1 {
+    margin: 0;
+    padding: 18px 20px;
+    font-size: 20px;
+    border-bottom: 1px solid #2f3336;
+}
+
+.description {
+    padding: 18px 20px;
+    color: #71767b;
+    border-bottom: 1px solid #2f3336;
+}
+
+.card {
+    padding: 25px 20px;
+    border-bottom: 1px solid #2f3336;
+}
+
+label {
+    display: block;
+    margin: 20px 0 8px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid #2f3336;
+    border-radius: 9999px;
+    background: #000;
+    color: #e7e9ea;
+    font-size: 16px;
+    outline: none;
+}
+
+input:focus {
+    border-color: #1d9bf0;
+}
+
+button {
+    width: 100%;
+    margin-top: 25px;
+    padding: 13px 20px;
+    border: none;
+    border-radius: 9999px;
+    background: #1d9bf0;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #1a8cd8;
+}
+
+.result {
+    padding: 25px 20px;
+    border-bottom: 1px solid #2f3336;
+}
+
+.result h2 {
+    margin-top: 0;
+    font-size: 20px;
+}
+
+.result p {
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+.hidden {
+    display: none;
+}
