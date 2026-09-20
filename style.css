@@ -9,7 +9,6 @@ body {
     font-family: Arial, sans-serif;
 }
 
-/* PCでは中央にコンパクトに配置 */
 .container {
     width: 100%;
     max-width: 1000px;
@@ -18,8 +17,6 @@ body {
     padding: 50px 80px;
     background: #000;
 }
-
-/* Xロゴ */
 
 .header {
     text-align: center;
@@ -37,8 +34,6 @@ body {
     font-size: 28px;
 }
 
-/* 説明 */
-
 .intro {
     text-align: center;
     margin-bottom: 30px;
@@ -50,15 +45,11 @@ body {
     font-size: 15px;
 }
 
-/* 入力カード */
-
 .card {
     width: 100%;
     max-width: 650px;
     margin: 0 auto;
 }
-
-/* 入力 */
 
 .input-group {
     margin-bottom: 20px;
@@ -75,13 +66,10 @@ input {
     width: 100%;
     height: 52px;
     padding: 0 18px;
-
     border: 1px solid #2f3336;
     border-radius: 8px;
-
     background: #000;
     color: #e7e9ea;
-
     font-size: 16px;
     outline: none;
 }
@@ -94,23 +82,16 @@ input:focus {
     border-color: #1d9bf0;
 }
 
-/* ボタン */
-
 button {
     width: 100%;
     height: 50px;
-
     margin-top: 8px;
-
     border: none;
     border-radius: 9999px;
-
     background: #1d9bf0;
     color: white;
-
     font-size: 16px;
     font-weight: bold;
-
     cursor: pointer;
 }
 
@@ -118,24 +99,18 @@ button:hover {
     background: #1a8cd8;
 }
 
-/* 結果 */
-
 .result {
     width: 100%;
-    max-width: 500px;
-
+    max-width: 700px;
     margin: 40px auto 0;
     padding: 30px 20px;
-
     border-top: 1px solid #2f3336;
     border-bottom: 1px solid #2f3336;
-
     text-align: center;
 }
 
 .result-label {
     margin-bottom: 15px;
-
     color: #71767b;
     font-size: 13px;
     font-weight: bold;
@@ -144,7 +119,6 @@ button:hover {
 
 .result p {
     margin: 0;
-
     font-size: 32px;
     line-height: 1.4;
     font-weight: bold;
@@ -154,18 +128,17 @@ button:hover {
     display: none;
 }
 
-/* フッター */
-
 footer {
     margin-top: 40px;
-
     text-align: center;
-
     color: #71767b;
     font-size: 13px;
 }
 
-/* スマホ */
+
+/* =========================
+   スマホ
+========================= */
 
 @media (max-width: 600px) {
 
@@ -183,5 +156,51 @@ footer {
 
     .result p {
         font-size: 26px;
+    }
+}
+
+
+/* =========================
+   PC
+========================= */
+
+@media (min-width: 601px) {
+
+    .container {
+        min-height: 100vh;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .header h1 {
+        font-size: 34px;
+    }
+
+    .intro p {
+        font-size: 17px;
+    }
+
+    .card {
+        max-width: 700px;
+    }
+
+    input {
+        height: 58px;
+        font-size: 18px;
+    }
+
+    button {
+        height: 56px;
+        font-size: 18px;
+    }
+
+    .result {
+        max-width: 700px;
+    }
+
+    .result p {
+        font-size: 38px;
     }
 }
