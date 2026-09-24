@@ -161,9 +161,6 @@ function checkResult() {
 }
 
 
-// =========================
-// Xで結果をポスト
-// =========================
 
 function shareResult() {
 
@@ -180,13 +177,12 @@ function shareResult() {
         "最近流行りのXブロックチェッカーやってみたら" +
         number +
         "人にブロックされてたw\n" +
-        "試したいひと👇";
+        "試したいひと👇\n" +
+        SITE_URL;
 
     const url =
-        "https://twitter.com/intent/tweet?text=" +
-        encodeURIComponent(text) +
-        "&url=" +
-        encodeURIComponent(SITE_URL);
+        "https://twitter.com/intent/post?text=" +
+        encodeURIComponent(text);
 
     window.open(
         url,
