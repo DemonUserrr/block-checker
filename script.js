@@ -170,17 +170,14 @@ function shareResult() {
     const result =
         document.getElementById("resultText").textContent;
 
-
     const SITE_URL =
         "https://iz7d.github.io/block-checker/";
 
-
     const text =
-        "𝕏ブロックチェッカーの結果は「" +
-        result +
-        "」でした！\n\n" +
-        "あなたもチェックしてみて👇";
-
+        "Xブロックチェッカーやってみたら" +
+        result.replace("あなたは", "").replace("ブロックされていました！", "人にブロックされてたｗ") +
+        "\n" +
+        "試したいひと👇";
 
     const url =
         "https://twitter.com/intent/tweet?text=" +
@@ -188,11 +185,9 @@ function shareResult() {
         "&url=" +
         encodeURIComponent(SITE_URL);
 
-
     window.open(
         url,
         "_blank",
         "width=600,height=500"
     );
-
-    }
+}
