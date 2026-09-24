@@ -173,10 +173,13 @@ function shareResult() {
     const SITE_URL =
         "https://iz7d.github.io/block-checker/";
 
+    const number =
+        result.match(/\d+/)?.[0] || "0";
+
     const text =
-        "Xブロックチェッカーやってみたら" +
-        result.replace("あなたは", "").replace("ブロックされていました！", "人にブロックされてたｗ") +
-        "\n" +
+        "最近流行りのXブロックチェッカーやってみたら" +
+        number +
+        "人にブロックされてたw\n" +
         "試したいひと👇";
 
     const url =
